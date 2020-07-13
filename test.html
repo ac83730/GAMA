@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)file:///C:/Users/lsh/Desktop/test.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+    </head>
+        <body>
+    
+			<video id="videoplay" autoplay="" width="100%" height="100%" controls="">
+                <source src="C://test.mp4" type="video/mp4">
+            </video>
+			
+			<form action="">
+			<br>
+			<select name="combo" id="SerialPort_combo">
+				<option value="1">아이폰</option>
+				<option value="2" selected>갤럭시</option>
+				<option value="3">샤오미</option>
+			</select>
+			<br>
+			<input type ="button" onclick="btnFunction()" value="장치열기">
+			<br>
+			<input type="text" style="width:400px;" id="text_box">
+			<input type="file" accept='text/plain' id="files"/>
+			<br>
+			</form>
+			
+			<script>
+            console.log('start3');
+			var url = document.all.url;
+
+			 var xmlhttp = new XMLHttpRequest();
+			 xmlhttp.onreadystatechange = callFunction;
+			 xmlhttp.open("GET", "https://web-n.github.io/web1_html_internet/1.html", true);
+			 xmlhttp.send(null);
+			 
+			 function callFunction(){
+			if(xmlhttp.readyState == 4) {
+			if(xmlhttp.status == 200){
+            var responseData = xmlhttp.responseText;
+            console.log(responseData);
+			}
+			}
+			}
+
+			
+			var ops =document.getElementById("SerialPort_combo");
+			
+			var option = document.createElement("option");
+			option.text = "tempText"
+			
+			ops.add(option);
+
+
+
+			
+			StartClock();
+			
+function btnFunction()
+{
+
+var temp = 'serialport';
+	document.getElementById("text_box").value = temp;
+}
+    
+
+function PrintTime() {
+
+        var obj = document.getElementById("videoplay");
+
+              var time = obj.currentTime;
+			  
+			  console.log("time:" + time);
+			  
+			  var temp = "time:" + time;
+			  
+			  document.getElementById("text_box").value = temp;
+            
+}
+
+function StartClock() {
+
+    PrintTime();
+
+    timerId = setInterval(PrintTime, 33);
+
+}
+
+function StopClock() {
+
+    if(timerId != null) {
+
+        clearInterval(timerId);
+
+    }
+
+}
+
+
+        </script></body></html>
